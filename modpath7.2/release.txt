@@ -1,0 +1,76 @@
+
+                           MODPATH Version 7 Release Notes
+                              MODPATH-7 Version 7.2.001
+                                  December 15, 2017
+
+     This file describes changes introduced into MODPATH version 7 with 
+each official release; these changes may substantially affect users. 
+
+NOTE: Any use of trade, product or firm names is for descriptive purposes 
+      only and does not imply endorsement by the U.S. Government.
+      
+Limitations of the current version (MODPATH 7.2.001)
+----------------------------------------------------
+
+1. MODPATH supports rectangular, quad-refined unstructured grids for simulations based on
+   MODFLOW-USG and MODFLOW-6. For simulations based on MODFLOW-USG, unstructured grids can 
+   be refined both horizontally and vertically from layer to layer. For simulations based 
+   on MODFLOW-6, only horizontal refinement is allowed. The maximum refinement level contrast 
+   between horizontally adjacent grid cells must not be greater than 1. That means that any 
+   grid cell can be connected to either 0, 1, or 2 grid cells across any adjacent horizontal 
+   face.  For MODFLOW-USG unstructured grids that permit vertical refinement, vertically 
+   adjacent grid cells can be connected to 0, 1, or 4 grid cells across the top or bottom face. 
+   These types of unstructured grids commonly are referred to as smoothed quadtree or 
+   quadpatch grids.
+   
+2. MODFLOW-USG simulations intended for use with MODPATH-7 should always use ghost 
+   nodes to minimize the effects of flow oscillations from cell to cell. MODFLOW-6 simulations
+   intended for use with MODPATH-7 should use either ghost nodes or the XT3D package, which
+   implements an inter-cell velocity computation scheme that minimizes flow oscillations 
+   with a similar degree of effectiveness as ghost nodes. Ghost nodes need to be computed 
+   externally by the user for each specific grid in contrast to XT3D which handles all of the 
+   necessary computations internally without any extra input from the user.
+   
+3. Although ghost nodes greatly reduce flow oscillations, significant flow oscillations often 
+   are present in the vertical direction in the immediate vicinity of internal sources and sinks 
+   even when ghost nodes are used. At the present time, we recommend that the same plan view 
+   unstructured grid be used for all model layers to avoid the problem with vertical flow 
+   oscillations.
+   
+4. This version of MODPATH currently is restricted to grids that have square grid cells in 
+   plan view. Particle tracking simulations based on traditional structured grid MODFLOW simulations 
+   are not restricted to square cells.
+
+
+Version History
+---------------
+
+o Version 7.2.001  December 2017
+
+   - MODPATH now supports MODFLOW-6.
+   
+   - Input for unstructured grid simulations with MODFLOW-USG was redesigned to take more advantage of
+     existing MODFLOW-USG data files and to reduce redundant input data. The MODPATH unstructured grid
+     file (MPUGRID) used in previous releases of MODPATH_7 is no longer supported.
+     
+   - Added x-y origin offset and grid rotation information to the endpoint, pathline, and timeseries file 
+     headers so that particle coordinates can be converted to world coordinates by post-processing programs.
+     
+   - Fixed a problem reading the LAYCBD array in the MODFLOW-2005 discretization file.
+   
+   - Fixed a problem reading forward slash (/) path delimiters in file names in the simulation data file.
+   
+   - Fixed a problem that caused particles not to stop at cells with a zone number equal to the stop zone 
+     when the automatic stop zone option was selected.
+     
+   - Other bug fixes and output format changes.
+
+
+o Version 7.1.000  September 26, 2016
+
+   This version is the initial public release.
+
+
+
+
+

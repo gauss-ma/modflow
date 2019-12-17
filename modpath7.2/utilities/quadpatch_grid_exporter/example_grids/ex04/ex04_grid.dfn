@@ -1,0 +1,17 @@
+begin modflow_grid
+  length_unit = foot
+  rotation_angle = 0
+  x_origin = 0
+  y_origin = 0
+  nlay = 1
+  nrow = 21
+  ncol = 26
+  delr = constant 500
+  delc = constant 500
+  top = constant 100
+  bottom layer 1 = constant 0
+end modflow_grid
+
+begin quadpatch
+  refinement layer 1 = array_file ex04_refinement.csv
+end quadpatch
