@@ -6,8 +6,7 @@
 # the executable, and the executable name and path.
 OBJDIR = ./obj_temp
 BINDIR = 
-PROGRAM = mf2005.exe
-
+PROGRAM = ../mf2005.exe
 SOURCEDIR1=../src
 
 VPATH = \

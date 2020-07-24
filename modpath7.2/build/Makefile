@@ -6,7 +6,7 @@
 # the executable, and the executable name and path.
 OBJDIR = ./obj_temp_cygwin
 BINDIR = .
-PROGRAM = ../exe/mpath.exe
+PROGRAM = ../mpath.exe
 
 SOURCEDIR1=../src
 

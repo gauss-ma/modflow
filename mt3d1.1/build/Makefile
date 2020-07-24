@@ -5,9 +5,8 @@
 # Define the directories for the object and module files,
 # the executable, and the executable name and path.
 OBJDIR = ./obj_temp
-BINDIR =../exe/
-PROGRAM = ../exe/mt3d.exe
-
+BINDIR = \
+PROGRAM = ../mt3d.exe
 SOURCEDIR1=../src
 
 VPATH = \
